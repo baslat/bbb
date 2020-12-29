@@ -1,13 +1,14 @@
 Package: bbb
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Basic Bounding Box
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Abasi Latcham
+Maintainer: Bas <abasi.latcham@gmail.com>
+Description: Interactively create a bounding box
+    Drag a recrangle, make a bounding box.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/baslat/bbb
 BugReports: https://github.com/baslat/bbb/issues
+RoxygenNote: 7.1.1
