@@ -4,19 +4,20 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of bbb is to ...
+The goal of bbb is to allow for the interactive creation of bounding boxes
+inside R Studio.
 
 ## Installation
 
-You can install the released version of bbb from [CRAN](https://CRAN.R-project.org) with:
+You can install the development version of `bbb` from [GitHub](https://github.com/baslat/bbb) with:
 
 ``` r
-install.packages("bbb")
+remotes::install.github(repo = "baslat/bbb")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+To use `bbb`, simply `library`, run the function, draw your box, and off you go!
 
 ``` r
 library(bbb)

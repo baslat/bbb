@@ -12,3 +12,10 @@ LazyData: true
 URL: https://github.com/baslat/bbb
 BugReports: https://github.com/baslat/bbb/issues
 RoxygenNote: 7.1.1
+Imports: 
+    leaflet,
+    leaflet.extras,
+    purrr,
+    sf,
+    shiny,
+    magrittr
