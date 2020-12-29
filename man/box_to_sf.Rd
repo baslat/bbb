@@ -10,7 +10,7 @@ box_to_sf(coords)
 \item{coords}{from the shiny, the list of coords}
 }
 \value{
-
+an sf object
 }
 \description{
 Take a rectangle drawn on the leaflet, pull out its coords, and turn it into

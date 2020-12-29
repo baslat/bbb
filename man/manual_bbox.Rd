@@ -10,7 +10,7 @@ manual_bbox(coords)
 \item{coords}{from the shiny}
 }
 \value{
-
+a matrix
 }
 \description{
 Manually construct the bounding box and return a vector.

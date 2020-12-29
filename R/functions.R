@@ -5,10 +5,8 @@
 #'
 #' @param coords from the shiny, the list of coords
 #'
-#' @return
-#' @export
+#' @return an sf object
 #'
-#' @examples
 box_to_sf <- function(coords) {
 
   # Create a sfg polygon
@@ -32,10 +30,7 @@ box_to_sf <- function(coords) {
 #'
 #' @param coords from the shiny
 #'
-#' @return
-#' @export
-#'
-#' @examples
+#' @return a matrix
 manual_bbox <- function(coords) {
   # the + 360 is probably not always valid
   x_min <- coords[[1]][[1]] + 360
