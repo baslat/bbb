@@ -1,4 +1,4 @@
-app <- function() {
+bbb <- function() {
   shiny::shinyApp(
     ui = shiny::fluidPage(
       shiny::titlePanel(title = "Bounding Box Builder"),
@@ -26,21 +26,32 @@ app <- function() {
             circleOptions = FALSE,
             markerOptions = FALSE,
             circleMarkerOptions = FALSE
-          )
+          ) %>%
+          leaflet.extras::addSearchOSM()
 
       })
 
       shiny::observeEvent(input$button, {
-        # Get the coords from the box
-        coords <- input$map_draw_all_features$features[[1]]$geometry$coordinates[[1]]
-        # Turn into an sf
-        box <- box_to_sf(coords)
-        # Assign to something in the global
-        # Need to add check that var_name exists
-        assign(x = input$var_name,
-               value = box,
-               envir = .GlobalEnv)
-        shiny::stopApp()
+        # Check if a box is drawn
+
+        # if (exists("input$map_draw_all_features")) {
+          # Get the coords from the box
+          coords <- input$map_draw_all_features$features[[1]]$geometry$coordinates[[1]]
+
+          # Turn into an sf
+          box <- box_to_sf(coords)
+          mbb <- manual_bbox(coords)
+          # Assign to something in the global
+          # Need to add check that var_name exists
+          assign(x = input$var_name,
+                 value = box,
+                 envir = .GlobalEnv)
+          assign(x = "mbb",
+                 value = mbb,
+                 envir = .GlobalEnv)
+          shiny::stopApp()
+        # }
+
       })
     }
   )
