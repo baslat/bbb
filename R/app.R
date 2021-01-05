@@ -12,6 +12,12 @@ bbb <- function() {
       shiny::titlePanel(title = "Bounding Box Builder"),
       shiny::sidebarLayout(
         shiny::sidebarPanel(
+          shiny::h2("Use:"),
+          shiny::p("Draw a bounding box using the 'square' button on the map. Click the"),
+          shiny::code("build my box"),
+          shiny::p("button to create the code needed to reproduce that bounding box, as well as an"),
+          shiny::code("sf"),
+          shiny::p("rectangle in the global environment."),
           shiny::textInput(inputId = "var_name",
                            label = "Name of the bb var",
                            value = "bbox_sf"),
@@ -26,6 +32,9 @@ bbb <- function() {
     server = function(input, output) {
       output$map = leaflet::renderLeaflet({
         leaflet::leaflet() %>%
+          leaflet::setView(lng = 0,
+                           lat = 0,
+                           zoom = 1) %>%
           leaflet::addTiles() %>%
           leaflet.extras::addDrawToolbar(
             singleFeature = TRUE,
@@ -55,12 +64,12 @@ bbb <- function() {
                  value = box,
                  envir = .GlobalEnv)
           # testing ---
-          # assign(x = "mbb",
-          #        value = mbb,
-          #        envir = .GlobalEnv)
-          # assign(x = "coords",
-          #        value = coords,
-          #        envir = .GlobalEnv)
+          assign(x = "mbb",
+                 value = mbb,
+                 envir = .GlobalEnv)
+          assign(x = "coords",
+                 value = coords,
+                 envir = .GlobalEnv)
           # Write the code to make the bbox
           code_bbox(mbb = mbb)
 
