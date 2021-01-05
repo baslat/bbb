@@ -13,9 +13,11 @@ URL: https://github.com/baslat/bbb
 BugReports: https://github.com/baslat/bbb/issues
 RoxygenNote: 7.1.1
 Imports: 
+    glue,
     leaflet,
     leaflet.extras,
     purrr,
+    rstudioapi,
     sf,
     shiny,
     magrittr

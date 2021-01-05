@@ -14,7 +14,7 @@ bbb <- function() {
         shiny::sidebarPanel(
           shiny::textInput(inputId = "var_name",
                            label = "Name of the bb var",
-                           value = "bbox"),
+                           value = "bbox_sf"),
           shiny::actionButton(inputId = "button",
                               label = "Build my box")
           ),
@@ -54,9 +54,16 @@ bbb <- function() {
           assign(x = input$var_name,
                  value = box,
                  envir = .GlobalEnv)
-          assign(x = "mbb",
-                 value = mbb,
-                 envir = .GlobalEnv)
+          # testing ---
+          # assign(x = "mbb",
+          #        value = mbb,
+          #        envir = .GlobalEnv)
+          # assign(x = "coords",
+          #        value = coords,
+          #        envir = .GlobalEnv)
+          # Write the code to make the bbox
+          code_bbox(mbb = mbb)
+
           shiny::stopApp()
         # }
 
