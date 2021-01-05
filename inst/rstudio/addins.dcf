@@ -1,5 +1,5 @@
 Name: Build a Bounding Box
 Description: Draw a boudning box in an interactive Shiny session
-Binding: BBB
+Binding: bbb
 Interactive: true
 
