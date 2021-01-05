@@ -10,5 +10,5 @@ code_bbox(mbb)
 \item{mbb}{a manual bounding box from \code{manual_bbox}}
 }
 \description{
-Provides the code to reproduce your boudning box.
+Provides the code to reproduce your bounding box.
 }

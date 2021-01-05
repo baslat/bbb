@@ -46,14 +46,14 @@ manual_bbox <- function(coords) {
 
 #' Get the code to reproduce your bounding box
 #'
-#' Provides the code to reproduce your boudning box.
+#' Provides the code to reproduce your bounding box.
 #'
 #' @param mbb a manual bounding box from \code{manual_bbox}
 #'
 code_bbox <- function(mbb) {
   bb_code <- glue::glue(
     'box <- c("xmin" = {mbb[1,2]}, "ymin" = {mbb[2,1]}, "xmax" = {mbb[1,2]}, "ymax" = {mbb[2,2]})
-    attr(box, "class") = "bbox"')
+    attr(box, "class") <- "bbox"')
   rstudioapi::insertText(text = bb_code)
   invisible()
 }
