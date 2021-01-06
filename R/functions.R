@@ -54,7 +54,8 @@ code_bbox <- function(mbb) {
   bb_code <- glue::glue(
     'box <- c("xmin" = {mbb[1,2]}, "ymin" = {mbb[2,1]}, "xmax" = {mbb[1,2]}, "ymax" = {mbb[2,2]})
     attr(box, "class") <- "bbox"')
-  rstudioapi::insertText(text = bb_code)
+  rstudioapi::insertText(text = bb_code,
+                         id = "#console")
   invisible()
 }
 
