@@ -1,4 +1,4 @@
-#' Build a bounding box (bbb)
+#' Build a bounding box
 #'
 #' Launches an interactive \code{shiny} session for you to draw a bounding box.
 #' The code to create the bounding box is then available in your script, or an
@@ -6,7 +6,7 @@
 #'
 #' @export
 #'
-bbb <- function() {
+box <- function() {
   shiny::shinyApp(
     ui = shiny::fluidPage(
       shiny::titlePanel(title = "Bounding Box Builder"),
@@ -15,12 +15,12 @@ bbb <- function() {
           shiny::h2("Use:"),
           shiny::p("Draw a bounding box using the 'square' button on the map. Click the"),
           shiny::code("build my box"),
-          shiny::p("button to create the code needed to reproduce that bounding box, as well as an"),
-          shiny::code("sf"),
-          shiny::p("rectangle in the global environment."),
-          shiny::textInput(inputId = "var_name",
-                           label = "Name of the bb var",
-                           value = "bbox_sf"),
+          shiny::p("button to create the code needed to reproduce that bounding
+                   box"),
+          # shiny::p("as well as an `sf` rectangle in the global environment."),
+          # shiny::textInput(inputId = "var_name",
+          #                  label = "Name of the bb var",
+          #                  value = "bbox_sf"),
           shiny::actionButton(inputId = "button",
                               label = "Build my box")
           ),
@@ -60,9 +60,9 @@ bbb <- function() {
           mbb <- manual_bbox(coords)
           # Assign to something in the global
           # Need to add check that var_name exists
-          assign(x = input$var_name,
-                 value = box,
-                 envir = .GlobalEnv)
+          # assign(x = input$var_name,
+          #        value = box,
+          #        envir = .GlobalEnv)
           # # testing ---
           # assign(x = "mbb",
           #        value = mbb,
@@ -71,9 +71,9 @@ bbb <- function() {
           #        value = coords,
           #        envir = .GlobalEnv)
           # Write the code to make the bbox
-          glue::glue("An sf object called `{input$var_name}` is now in your global environment.
-                     It's a rectangle from which you can extract a bounding box with `sf::st_bbox`.
-                     And save the below code in your script to make a reproducible bbox.") %>%
+          glue::glue(#"An sf object called `{input$var_name}` is now in your global environment.
+                     #It's a rectangle from which you can extract a bounding box with `sf::st_bbox`.
+                     "Save the below code in your script to make a reproducible bbox.") %>%
             message()
           code_bbox(mbb = mbb)
 

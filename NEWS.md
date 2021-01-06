@@ -1,6 +1,6 @@
 # bbb 0.1.1
 * forces bbox code to print to console
-* adds some messages about creation of global objects
+* comments out creation of global objects
 
 # bbb 0.1.0
 
