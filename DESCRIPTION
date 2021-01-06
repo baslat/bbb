@@ -1,23 +1,23 @@
-Package: bbb
 Type: Package
+Package: bbb
 Title: Basic Bounding Box
-Version: 0.1.0
+Version: 0.1.1
 Author: Abasi Latcham
 Maintainer: Bas <abasi.latcham@gmail.com>
-Description: Interactively create a bounding box
-    Drag a recrangle, make a bounding box.
+Description: Interactively create a bounding box Drag a
+    recrangle, make a bounding box.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
 URL: https://github.com/baslat/bbb
 BugReports: https://github.com/baslat/bbb/issues
-RoxygenNote: 7.1.1
 Imports: 
     glue,
     leaflet,
     leaflet.extras,
+    magrittr,
     purrr,
     rstudioapi,
     sf,
-    shiny,
-    magrittr
+    shiny
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
