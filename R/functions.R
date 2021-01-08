@@ -1,3 +1,18 @@
+#' Get the code to reproduce your bounding box
+#'
+#' Provides the code to reproduce your bounding box.
+#'
+#' @param mbb a manual bounding box from \code{manual_bbox}
+#'
+code_bbox <- function(mbb) {
+  bb_code <- glue::glue(
+    'bbox <- c("xmin" = {mbb[1,2]}, "ymin" = {mbb[2,1]}, "xmax" = {mbb[1,2]}, "ymax" = {mbb[2,2]})
+    attr(bbox, "class") <- "bbox"')
+  rstudioapi::insertText(text = bb_code)
+  invisible()
+}
+
+
 #' Convert a drawn box to an SF object
 #'
 #' Take a rectangle drawn on the leaflet, pull out its coords, and turn it into
@@ -44,19 +59,5 @@ manual_bbox <- function(coords) {
 }
 
 
-#' Get the code to reproduce your bounding box
-#'
-#' Provides the code to reproduce your bounding box.
-#'
-#' @param mbb a manual bounding box from \code{manual_bbox}
-#'
-code_bbox <- function(mbb) {
-  bb_code <- glue::glue(
-    'bbox <- c("xmin" = {mbb[1,2]}, "ymin" = {mbb[2,1]}, "xmax" = {mbb[1,2]}, "ymax" = {mbb[2,2]})
-    attr(bbox, "class") <- "bbox"')
-  rstudioapi::insertText(text = bb_code,
-                         id = "#console")
-  invisible()
-}
 
 
