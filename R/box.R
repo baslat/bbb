@@ -12,11 +12,11 @@ box <- function() {
       shiny::sidebarLayout(
         shiny::sidebarPanel(
           shiny::h3("Use:"),
-          tags$ol(
-            tags$li("Draw a bounding box using the ",
+          shiny::tags$ol(
+            shiny::tags$li("Draw a bounding box using the ",
                     shiny::strong("square"),
                     "button on the map."),
-            tags$li("Click the ",
+            shiny::tags$li("Click the ",
                     shiny::code("build my box"),
                     "button to create the code needed to reproduce that bounding
                     box")),
@@ -48,12 +48,12 @@ box <- function() {
 
       shiny::observeEvent(input$button, {
         # Check if a box is drawn
-        # if (!exists("input$map_draw_all_features")) {
-        #   shiny::stopApp()
-        #   warning("You didn't draw a box, try again.",
-        #           call. = FALSE)
-        #   return(NULL)
-        # } else {
+        if (!exists("input$map_draw_all_features")) {
+          shiny::stopApp()
+          warning("You didn't draw a box, try again.",
+                  call. = FALSE)
+          return(NULL)
+        } else {
           # Get the coords from the box
           coords <- input$map_draw_all_features$features[[1]]$geometry$coordinates[[1]]
           # Turn into a bounding box
@@ -63,7 +63,7 @@ box <- function() {
           code_bbox(mbb = mbb)
           shiny::stopApp()
           return(NULL)
-        # }
+        }
       })
     }
   )
