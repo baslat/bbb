@@ -2,6 +2,8 @@
 * removes pipe from returned code
 * unforces bbox code to print to console
 * makes the instructions more explicit
+* removes `sf` from dependencies
+* removes most of the unnecessary features
 
 # bbb 0.1.1
 * forces bbox code to print to console
