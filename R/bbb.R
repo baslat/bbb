@@ -48,6 +48,12 @@ box <- function() {
 
       shiny::observeEvent(input$button, {
         # Check if a box is drawn
+        if (!exists("input$map_draw_all_features")) {
+          shiny::stopApp()
+          warning("You didn't draw a box, try again.",
+                  call. = FALSE)
+          return(NULL)
+        }
 
         # if (exists("input$map_draw_all_features")) {
           # Get the coords from the box
