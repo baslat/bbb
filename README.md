@@ -19,7 +19,7 @@ remotes::install_github(repo = "baslat/bbb")
 ## Example
 
 `bbb` is an RStudio addin, so it is best accessed via the `Addins` drop-down
-menu in RStudio and then following on the on-screen instructions. If you are
+menu in RStudio and then following the on-screen instructions. If you are
 inclined to manually call it, you can do so with
 
 ``` r
