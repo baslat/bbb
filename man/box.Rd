@@ -8,6 +8,5 @@ box()
 }
 \description{
 Launches an interactive \code{shiny} session for you to draw a bounding box.
-The code to create the bounding box is then available in your script, or an
-object can be created in your session, or both.
+The code to recreate the bounding box is then available in your script.
 }
