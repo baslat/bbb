@@ -59,21 +59,8 @@ box <- function() {
           # Get the coords from the box
           coords <- input$map_draw_all_features$features[[1]]$geometry$coordinates[[1]]
 
-          # Turn into an sf
-          box <- box_to_sf(coords)
+          # Turn into a bounding box
           mbb <- manual_bbox(coords)
-          # Assign to something in the global
-          # Need to add check that var_name exists
-          # assign(x = input$var_name,
-          #        value = box,
-          #        envir = .GlobalEnv)
-          # # testing ---
-          # assign(x = "mbb",
-          #        value = mbb,
-          #        envir = .GlobalEnv)
-          # assign(x = "coords",
-          #        value = coords,
-          #        envir = .GlobalEnv)
           # Write the code to make the bbox
           glue::glue_col("{cyan Save the below code in your script to make a reproducible bbox.}") %>%
             message()

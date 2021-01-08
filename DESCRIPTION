@@ -17,7 +17,6 @@ Imports:
     magrittr,
     purrr,
     rstudioapi,
-    sf,
     shiny
 Encoding: UTF-8
 LazyData: true
