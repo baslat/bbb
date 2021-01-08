@@ -47,23 +47,15 @@ box <- function() {
       })
 
       shiny::observeEvent(input$button, {
-        # Check if a box is drawn
-        if (!exists("input$map_draw_all_features")) {
-          shiny::stopApp()
-          warning("You didn't draw a box, try again.",
-                  call. = FALSE)
-          return(NULL)
-        } else {
-          # Get the coords from the box
-          coords <- input$map_draw_all_features$features[[1]]$geometry$coordinates[[1]]
-          # Turn into a bounding box
-          mbb <- manual_bbox(coords)
-          # Write the code to make the bbox
-          message(glue::glue_col("{cyan Save the below code in your script to make a reproducible bbox.}"))
-          code_bbox(mbb = mbb)
-          shiny::stopApp()
-          return(NULL)
-        }
+        req(input$map_draw_all_features)
+        coords <- input$map_draw_all_features$features[[1]]$geometry$coordinates[[1]]
+        # Turn into a bounding box
+        mbb <- manual_bbox(coords)
+        # Write the code to make the bbox
+        message(glue::glue("Save the below code in your script to make a reproducible bbox."))
+        code_bbox(mbb = mbb)
+        shiny::stopApp()
+        # }
       })
     }
   )
