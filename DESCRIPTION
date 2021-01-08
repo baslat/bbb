@@ -1,7 +1,7 @@
 Type: Package
 Package: bbb
 Title: Basic Bounding Box
-Version: 0.1.1
+Version: 0.1.1.9000
 Author: Abasi Latcham
 Maintainer: Bas <abasi.latcham@gmail.com>
 Description: Interactively create a bounding box. Drag a

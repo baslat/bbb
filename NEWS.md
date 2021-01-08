@@ -1,3 +1,5 @@
+# bbb (development version)
+
 # bbb 0.1.1
 * forces bbox code to print to console
 * comments out creation of global objects
