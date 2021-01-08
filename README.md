@@ -1,5 +1,5 @@
 
-# bbb
+# bbb: build bounding boxes
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -9,18 +9,20 @@ inside R Studio.
 
 ## Installation
 
-You can install the development version of `bbb` from [GitHub](https://github.com/baslat/bbb) with:
+You can install the development version of `bbb` from
+[GitHub](https://github.com/baslat/bbb) with:
 
 ``` r
-remotes::install.github(repo = "baslat/bbb")
+remotes::install_github(repo = "baslat/bbb")
 ```
 
 ## Example
 
-To use `bbb`, simply `library`, run the function, draw your box, and off you go!
+`bbb` is an RStudio addin, so it is best accessed via the `Addins` drop-down
+menu in RStudio and then following on the on-screen instructions. If you are
+inclined to manually call it, you can do so with
 
 ``` r
-library(bbb)
-## basic example code
+bbb::box()
 ```
 
