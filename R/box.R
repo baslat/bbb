@@ -7,6 +7,7 @@
 #'
 box <- function() {
   shiny::shinyApp(
+    # The ui code
     ui = shiny::fluidPage(
       shiny::titlePanel(title = "Build a bounding box"),
       shiny::sidebarLayout(
@@ -27,6 +28,7 @@ box <- function() {
         )
       )
     ),
+    # the server code
     server = function(input, output) {
       output$map = leaflet::renderLeaflet({
         leaflet::leaflet() %>%
@@ -45,7 +47,7 @@ box <- function() {
           leaflet.extras::addSearchOSM()
 
       })
-
+      # the button action
       shiny::observeEvent(input$button, {
         req(input$map_draw_all_features)
         coords <- input$map_draw_all_features$features[[1]]$geometry$coordinates[[1]]
