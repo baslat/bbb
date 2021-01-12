@@ -30,36 +30,40 @@ morph <- function(bbox,
   stopifnot(class(bbox) == "bbox")
   stopifnot(output_type %in% c("xy_string", "word_string", "xy_matrix"))
 
-  # Determine input type ----
-  n <- length(bbox)
-  words <- any(names(bbox) == "left")
-  xy <- any(names(bbox) == "xmax")
-
-  input_type <- dplyr::case_when(
-    words == TRUE && n == 4 ~ "word_string",
-    xy == TRUE && n == 4 ~ "xy_string",
-    TRUE ~ "other"
-  )
-
-  # Early return if no change needed
-  if (input_type == output_type) {
-    return(bbox)
-  }
-  # Check for valid input format
-  if (input_type == "other") {
-    stop("This input type is not yet implemented.")
-  }
-
+  bbox_ws <- to_word_str(bbox)
 
   # Determine the final function and apply it ----
   func <- switch(output_type,
+                 "word_string" = "to_word_str",
                  "xy_string" = "word_str_to_xy_str",
-                 "word_string" = "xy_str_to_word_str")
+                 "xy_matrix" = "word_str_to_xy_matrix")
 
-  fun_raw <- glue::glue("{func}(bbox)")
+  fun_raw <- glue::glue("{func}(bbox_ws)")
   eval(parse(text = fun_raw))
 
 }
+
+#' Morph any bounding box to a word string bounding box
+#'
+#' Take any bounding box format and morph it to a word string type.
+#'
+#' @param bbox
+#'
+#' @return a word string bounding box
+#'
+to_word_str <- function(bbox) {
+
+  # If a matrix
+  if (any(class(unclass(bbox)) == "matrix")) {
+    bb <- c("left" = bbox[1,1], "bottom" = bbox[2,1], "right" = bbox[1,2], "top" = bbox[2,2])
+    attr(bb, "class") <- "bbox"
+    return(bb)
+  } else {
+    names(bbox) <- c("left", "bottom", "right", "top")
+    return(bbox)
+  }
+}
+
 
 
 #' Morph a word string bbox to a xy string bbox
@@ -77,16 +81,21 @@ word_str_to_xy_str <- function(bbox) {
 }
 
 
-#' Morph a xy string bbox to a word string bbox
+#' Morph an xy string bbox to a xy matrix bbox
 #'
 #' Changes the format of a xy string bounding box (eg xmax, ymin) to an
-#' word string type (ie left, right etc).
+#' xy matrix type.
 #'
-#' @param bbox A bounding box with names left, right etc
+#' @param bbox A bounding box with names xmin, ymax etc
 #'
-#' @return a bounding box uses \code{xmax} etc style as a string
+#' @return a bounding box in matrix form
 #'
-xy_str_to_word_str <- function(bbox) {
-  names(bbox) <- c("left", "bottom", "right", "top")
-  return(bbox)
+word_str_to_xy_matrix <- function(bbox) {
+
+  bb <- rbind(c(bbox["left"], bbox["right"]), c(bbox["bottom"], bbox["top"]))
+  dimnames(bb) <- list(c("x", "y"), c("min", "max"))
+  attr(bb, "class") = "bbox"
+  return(bb)
+
 }
+
