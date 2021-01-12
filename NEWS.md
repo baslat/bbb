@@ -1,3 +1,5 @@
+# bbb 0.3.0
+
 # bbb 0.2.0
 * removes pipe from returned code
 * unforces bbox code to print to console
