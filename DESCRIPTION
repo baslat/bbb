@@ -10,7 +10,6 @@ License: MIT + file LICENSE
 URL: https://github.com/baslat/bbb
 BugReports: https://github.com/baslat/bbb/issues
 Imports: 
-    crayon,
     glue,
     leaflet,
     leaflet.extras,
