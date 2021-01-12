@@ -7,7 +7,7 @@
 to_word_str(bbox)
 }
 \arguments{
-\item{bbox}{}
+\item{bbox}{a bounding box}
 }
 \value{
 a word string bounding box

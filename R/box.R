@@ -49,7 +49,7 @@ box <- function() {
       })
       # the button action
       shiny::observeEvent(input$button, {
-        req(input$map_draw_all_features)
+        shiny::req(input$map_draw_all_features)
         coords <- input$map_draw_all_features$features[[1]]$geometry$coordinates[[1]]
         # Turn into a bounding box
         mbb <- manual_bbox(coords)

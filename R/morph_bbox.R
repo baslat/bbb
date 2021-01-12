@@ -8,7 +8,7 @@
 #' @param output_type (quoted character) the desired output format. One of
 #'   \code{"xy_string"}, \code{"word_string"} or \code{"xy_matrix"}.
 #'
-#' @return
+#' @return a bounding box in the desired format
 #' @export
 #'
 #' @examples
@@ -47,7 +47,7 @@ morph <- function(bbox,
 #'
 #' Take any bounding box format and morph it to a word string type.
 #'
-#' @param bbox
+#' @param bbox a bounding box
 #'
 #' @return a word string bounding box
 #'

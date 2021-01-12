@@ -13,7 +13,7 @@ morph(bbox, output_type)
 \code{"xy_string"}, \code{"word_string"} or \code{"xy_matrix"}.}
 }
 \value{
-
+a bounding box in the desired format
 }
 \description{
 Change the layout and names of a bounding box. The function will figure out
