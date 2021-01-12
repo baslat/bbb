@@ -1,6 +1,9 @@
 # bbb 0.3.0
+* adds `morph` functions to change the format of bounding boxes
 * fixes an incorrect reference in the returned code
 * changes to use left, right etc instead of xmin, xmax in returned code
+* removes `crayon` from dependencies
+* adds `dplyr` to `suggests`
 
 # bbb 0.2.0
 * removes pipe from returned code
