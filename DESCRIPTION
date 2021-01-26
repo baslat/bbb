@@ -1,6 +1,6 @@
 Type: Package
 Package: bbb
-Title: Basic Bounding Box
+Title: Build Bounding Boxes
 Version: 0.4.0
 Author: Abasi Latcham
 Maintainer: Bas <abasi.latcham@gmail.com>

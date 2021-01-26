@@ -4,7 +4,7 @@
 \name{bbb-package}
 \alias{bbb}
 \alias{bbb-package}
-\title{bbb: Basic Bounding Box}
+\title{bbb: Build Bounding Boxes}
 \description{
 Interactively create a bounding box. Drag a
     rectangle, make a bounding box.
