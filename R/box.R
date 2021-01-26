@@ -54,7 +54,7 @@ box <- function() {
         # Turn into a bounding box
         mbb <- manual_bbox(coords)
         # Write the code to make the bbox
-        message("Save the below code in your script to make a reproducible bounding box.")
+        message("Save this code in your script to make a reproducible bounding box.")
         code_bbox(mbb = mbb)
         shiny::stopApp()
         # }
