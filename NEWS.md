@@ -1,3 +1,5 @@
+# bbb 0.4.0
+
 # bbb 0.3.0
 * adds `morph` functions to change the format of bounding boxes
 * fixes an incorrect reference in the returned code
