@@ -57,6 +57,7 @@ to_word_str <- function(bbox) {
   if (any(class(unclass(bbox)) == "matrix")) {
     bb <- c("left" = bbox[1,1], "bottom" = bbox[2,1], "right" = bbox[1,2], "top" = bbox[2,2])
     attr(bb, "class") <- "bbox"
+    attr(bb, "crs") <- attr(bbox, "crs")
     return(bb)
   } else {
     names(bbox) <- c("left", "bottom", "right", "top")
@@ -94,7 +95,8 @@ word_str_to_xy_matrix <- function(bbox) {
 
   bb <- rbind(c(bbox["left"], bbox["right"]), c(bbox["bottom"], bbox["top"]))
   dimnames(bb) <- list(c("x", "y"), c("min", "max"))
-  attr(bb, "class") = "bbox"
+  attr(bb, "class") <- "bbox"
+  attr(bb, "crs") <- attr(bbox, "crs")
   return(bb)
 
 }
