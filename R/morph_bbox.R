@@ -29,10 +29,10 @@ morph <- function(bbox,
   stopifnot(class(bbox) == "bbox")
   stopifnot(output_type %in% c("xy_string", "word_string", "xy_matrix"))
 
-  bbox_ws <- to_word_str(bbox)
+  bbox_ws <- to_word_str(bbox) # nolint
 
   # Determine the final function and apply it ----
-  func <- switch(output_type,
+  func <- switch(output_type, # nolint
     "word_string" = "to_word_str",
     "xy_string" = "word_str_to_xy_str",
     "xy_matrix" = "word_str_to_xy_matrix"
