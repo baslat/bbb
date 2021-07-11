@@ -8,7 +8,7 @@ code_bbox <- function(mbb) {
   bb_code <- glue::glue(
     'bbox <- c("left" = {mbb[1,1]}, "bottom" = {mbb[2,1]}, "right" = {mbb[1,2]}, "top" = {mbb[2,2]})
     attr(bbox, "class") <- "bbox"
-    attr(bbox, "crs") <- sf::st_crs(3857)')
+    attr(bbox, "crs") <- sf::st_crs(4326)')
   rstudioapi::insertText(text = bb_code)
   invisible()
 }
