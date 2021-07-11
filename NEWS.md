@@ -1,3 +1,5 @@
+# bbb 0.4.1
+
 # bbb 0.4.0
 * `box` now returns the code to set CRS attribute with EPSG:3857 in accordance
 with [leaflet documentation](https://rstudio.github.io/leaflet/projections.html)
