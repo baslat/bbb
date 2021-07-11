@@ -8,7 +8,8 @@ code_bbox <- function(mbb) {
   bb_code <- glue::glue(
     'bbox <- c("left" = {mbb[1,1]}, "bottom" = {mbb[2,1]}, "right" = {mbb[1,2]}, "top" = {mbb[2,2]})
     attr(bbox, "class") <- "bbox"
-    attr(bbox, "crs") <- sf::st_crs(4326)')
+    attr(bbox, "crs") <- sf::st_crs(4326)'
+  )
   rstudioapi::insertText(text = bb_code)
   invisible()
 }
@@ -28,10 +29,6 @@ manual_bbox <- function(coords) {
   top <- coords[[3]][[2]]
   bb <- rbind(c(left, right), c(bottom, top))
   dimnames(bb) <- list(c("x", "y"), c("min", "max"))
-  attr(bb, "class") = "bbox"
+  attr(bb, "class") <- "bbox"
   return(bb)
 }
-
-
-
-

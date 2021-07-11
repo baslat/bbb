@@ -18,7 +18,6 @@
 #' bbox2 <- morph(bbox, "xy_string")
 #' }
 #'
-#'
 morph <- function(bbox,
                   output_type) {
   # Check for dplyr
@@ -34,13 +33,13 @@ morph <- function(bbox,
 
   # Determine the final function and apply it ----
   func <- switch(output_type,
-                 "word_string" = "to_word_str",
-                 "xy_string" = "word_str_to_xy_str",
-                 "xy_matrix" = "word_str_to_xy_matrix")
+    "word_string" = "to_word_str",
+    "xy_string" = "word_str_to_xy_str",
+    "xy_matrix" = "word_str_to_xy_matrix"
+  )
 
   fun_raw <- glue::glue("{func}(bbox_ws)")
   eval(parse(text = fun_raw))
-
 }
 
 #' Morph any bounding box to a word string bounding box
@@ -55,7 +54,7 @@ to_word_str <- function(bbox) {
 
   # If a matrix
   if (any(class(unclass(bbox)) == "matrix")) {
-    bb <- c("left" = bbox[1,1], "bottom" = bbox[2,1], "right" = bbox[1,2], "top" = bbox[2,2])
+    bb <- c("left" = bbox[1, 1], "bottom" = bbox[2, 1], "right" = bbox[1, 2], "top" = bbox[2, 2])
     attr(bb, "class") <- "bbox"
     attr(bb, "crs") <- attr(bbox, "crs")
     return(bb)
@@ -92,12 +91,9 @@ word_str_to_xy_str <- function(bbox) {
 #' @return a bounding box in matrix form
 #'
 word_str_to_xy_matrix <- function(bbox) {
-
   bb <- rbind(c(bbox["left"], bbox["right"]), c(bbox["bottom"], bbox["top"]))
   dimnames(bb) <- list(c("x", "y"), c("min", "max"))
   attr(bb, "class") <- "bbox"
   attr(bb, "crs") <- attr(bbox, "crs")
   return(bb)
-
 }
-

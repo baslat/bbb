@@ -4,8 +4,8 @@ Title: Build Bounding Boxes
 Version: 0.4.1
 Author: Abasi Latcham
 Maintainer: Bas <abasi.latcham@gmail.com>
-Description: Interactively create a bounding box. Drag a
-    rectangle, make a bounding box.
+Description: Interactively create a bounding box. Drag a rectangle, make a
+    bounding box.
 License: MIT + file LICENSE
 URL: https://github.com/baslat/bbb
 BugReports: https://github.com/baslat/bbb/issues
@@ -15,10 +15,17 @@ Imports:
     leaflet.extras,
     magrittr,
     purrr,
+    rlang (>= 0.1.2),
     rstudioapi,
-    shiny
+    shiny,
+    tibble
 Suggests: 
-    dplyr
+    dplyr,
+    roxygen2,
+    spelling,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 RoxygenNote: 7.1.1
