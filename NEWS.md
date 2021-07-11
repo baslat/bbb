@@ -1,3 +1,8 @@
+# bbb 0.4.1
+* `box` now returns the code to set CRS attribute with EPSG:4326 in accordance
+with [Stack
+Exchange](https://gis.stackexchange.com/questions/310091/what-does-the-default-crs-being-epsg3857-in-leaflet-mean)
+
 # bbb 0.4.0
 * `box` now returns the code to set CRS attribute with EPSG:3857 in accordance
 with [leaflet documentation](https://rstudio.github.io/leaflet/projections.html)

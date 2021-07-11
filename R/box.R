@@ -14,27 +14,37 @@ box <- function() {
         shiny::sidebarPanel(
           shiny::h3("Use:"),
           shiny::tags$ol(
-            shiny::tags$li("Draw a bounding box using the ",
-                    shiny::strong("square"),
-                    "button on the map."),
-            shiny::tags$li("Click the ",
-                    shiny::code("build my box"),
-                    "button to create the code needed to reproduce that bounding
-                    box")),
-          shiny::actionButton(inputId = "button",
-                              label = "Build my box")),
-      shiny::mainPanel(
-        leaflet::leafletOutput(outputId = "map")
+            shiny::tags$li(
+              "Draw a bounding box using the ",
+              shiny::strong("square"),
+              "button on the map."
+            ),
+            shiny::tags$li(
+              "Click the ",
+              shiny::code("build my box"),
+              "button to create the code needed to reproduce that bounding
+                    box"
+            )
+          ),
+          shiny::actionButton(
+            inputId = "button",
+            label = "Build my box"
+          )
+        ),
+        shiny::mainPanel(
+          leaflet::leafletOutput(outputId = "map")
         )
       )
     ),
     # the server code
     server = function(input, output) {
-      output$map = leaflet::renderLeaflet({
+      output$map <- leaflet::renderLeaflet({
         leaflet::leaflet() %>%
-          leaflet::setView(lng = 0,
-                           lat = 0,
-                           zoom = 1) %>%
+          leaflet::setView(
+            lng = 0,
+            lat = 0,
+            zoom = 1
+          ) %>%
           leaflet::addTiles() %>%
           leaflet.extras::addDrawToolbar(
             singleFeature = TRUE,
@@ -45,7 +55,6 @@ box <- function() {
             circleMarkerOptions = FALSE
           ) %>%
           leaflet.extras::addSearchOSM()
-
       })
       # the button action
       shiny::observeEvent(input$button, {
