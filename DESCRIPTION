@@ -9,18 +9,17 @@ Description: Interactively create a bounding box. Drag a rectangle, make a
 License: MIT + file LICENSE
 URL: https://github.com/baslat/bbb
 BugReports: https://github.com/baslat/bbb/issues
-Imports: 
+Imports:
     glue,
     leaflet,
     leaflet.extras,
     magrittr,
-    purrr,
-    rlang (>= 0.1.2),
     rstudioapi,
-    shiny,
-    tibble
-Suggests: 
+    sf,
+    shiny
+Suggests:
     dplyr,
+    purrr,
     roxygen2,
     spelling,
     testthat (>= 3.0.0)
@@ -28,4 +27,4 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
