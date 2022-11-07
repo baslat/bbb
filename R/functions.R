@@ -6,10 +6,8 @@
 #'
 code_bbox <- function(mbb) {
   bb_code <- glue::glue(
-    'bbox <- c("left" = {mbb[1,1]}, "bottom" = {mbb[2,1]}, "right" = {mbb[1,2]}, "top" = {mbb[2,2]})
-    attr(bbox, "class") <- "bbox"
-    attr(bbox, "crs") <- sf::st_crs(4326)'
-  )
+			'bbox <- sf::st_bbox(c("xmin" = {mbb[["xmin"]]}, "ymin" = {mbb[["ymin"]]}, "xmax" = {mbb[["xmax"]]}, "ymax" = {mbb[["ymax"]]}), crs = 4326L)'
+		)
   rstudioapi::insertText(text = bb_code)
   invisible()
 }
@@ -23,12 +21,18 @@ code_bbox <- function(mbb) {
 #' @return a matrix
 manual_bbox <- function(coords) {
   # the + 360 is probably not always valid
-  left <- coords[[1]][[1]]
-  right <- coords[[3]][[1]]
-  bottom <- coords[[1]][[2]]
-  top <- coords[[3]][[2]]
-  bb <- rbind(c(left, right), c(bottom, top))
-  dimnames(bb) <- list(c("x", "y"), c("min", "max"))
-  attr(bb, "class") <- "bbox"
-  return(bb)
+  xmin <- coords[[1L]][[1L]]
+		xmax <- coords[[3L]][[1L]]
+		ymin <- coords[[1L]][[2L]]
+		ymax <- coords[[3L]][[2L]]
+
+		sf::st_bbox(
+			c(
+				"xmin" = xmin,
+				"ymin" = ymin,
+				"xmax" = xmax,
+				"ymax" = ymax
+			),
+			crs = 4326L
+		)
 }
