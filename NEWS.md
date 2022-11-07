@@ -1,3 +1,5 @@
+# bbb 1.0.0
+
 # bbb 0.4.1
 * `box` now returns the code to set CRS attribute with EPSG:4326 in accordance
 with [Stack

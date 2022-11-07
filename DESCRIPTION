@@ -1,7 +1,7 @@
 Type: Package
 Package: bbb
 Title: Build Bounding Boxes
-Version: 0.4.1
+Version: 1.0.0
 Author: Abasi Latcham
 Maintainer: Bas <abasi.latcham@gmail.com>
 Description: Interactively create a bounding box. Drag a rectangle, make a
