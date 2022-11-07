@@ -27,5 +27,4 @@ attr(bbox, "class") <- "bbox"
 bbox2 <- morph(bbox, "xy_string")
 }
 
-
 }

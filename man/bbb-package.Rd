@@ -6,8 +6,7 @@
 \alias{bbb-package}
 \title{bbb: Build Bounding Boxes}
 \description{
-Interactively create a bounding box. Drag a
-    rectangle, make a bounding box.
+Interactively create a bounding box. Drag a rectangle, make a bounding box.
 }
 \seealso{
 Useful links:
